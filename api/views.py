@@ -5,6 +5,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 
 from products.models import Product
+from products.serializers import ProductSerializer
 
 
 # building a simple API with JsonResponse
@@ -15,6 +16,7 @@ def api_home(request: Request):
     :param request:
     :return: a random product will return
     """
-    product = Product.objects.all().order_by("?").first()
-    data = model_to_dict(product, fields=["id", "title", "price"])
-    return Response(data)
+    product = Product.objects.all().last()
+    if product:
+        serializer = ProductSerializer(product)
+        return Response(serializer.data)
