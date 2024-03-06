@@ -1,17 +1,15 @@
-from django.http import JsonResponse
+from django.forms import model_to_dict
+from django.http import JsonResponse, HttpResponse
 from rest_framework.request import Request
 from rest_framework.utils import json
+
+from products.models import Product
 
 
 # building a simple API with JsonResponse
 def api_home(request: Request):
-    body = request.body
-    try:
-        data = json.loads(body)
-    except:
-        pass
-    print(request.GET)
-    data['headers'] = dict(request.headers)
-    # data['content_type'] = request.content_type
-    print(data)
-    return JsonResponse({"message": "Hi there, this is your Django API response"})
+    product = Product.objects.all().order_by("?").first()
+    data = model_to_dict(product, fields=["id", "title", "price"])
+    # json_data = json.dumps(data)
+    return JsonResponse(data)
+    # return HttpResponse(json_data, content_type="application/json")
