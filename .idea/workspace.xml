@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db352b80-24ad-47ad-9f3e-2a956fa3ed91" name="Changes" comment="47:30">
-      <change afterPath="$PROJECT_DIR$/products/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/products/migrations/__init__.py" afterDir="false" />
+    <list default="true" id="db352b80-24ad-47ad-9f3e-2a956fa3ed91" name="Changes" comment="Rest Framework View &amp; Response">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoProject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoProject/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +132,8 @@
       <option name="presentableId" value="Default" />
       <updated>1709710775783</updated>
       <workItem from="1709710802822" duration="5941000" />
-      <workItem from="1709724272604" duration="2126000" />
+      <workItem from="1709724272604" duration="3113000" />
+      <workItem from="1709758162200" duration="302000" />
     </task>
     <task id="LOCAL-00001" summary="37:07">
       <option name="closed" value="true" />
@@ -154,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709723754246</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Django Model instance to Dictionary">
+      <option name="closed" value="true" />
+      <created>1709726500498</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709726500498</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,18 +168,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="37:07" />
     <MESSAGE value="47:30" />
-    <option name="LAST_COMMIT_MESSAGE" value="47:30" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/api/views.py</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Django Model instance to Dictionary" />
+    <option name="LAST_COMMIT_MESSAGE" value="Django Model instance to Dictionary" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/djangoProject$basic.coverage" NAME="basic Coverage Results" MODIFIED="1709716424203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/djangoProject/py_client" />
