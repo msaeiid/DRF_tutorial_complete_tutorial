@@ -1,5 +1,5 @@
 from django.shortcuts import get_list_or_404, get_object_or_404
-from rest_framework import generics, views, status, mixins
+from rest_framework import generics, views, status, mixins, authentication, permissions
 from rest_framework.decorators import api_view
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -56,6 +56,9 @@ class ProductMixinView(generics.GenericAPIView,
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
     lookup_field = 'pk'
+    # note that permission and authentication are working on generic views
+    authentication_classes = [authentication.SessionAuthentication]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get(self, request, *args, **kwargs):
         pk = kwargs.get('pk', None)
