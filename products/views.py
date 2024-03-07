@@ -50,7 +50,9 @@ class ProductDetailAPIView(generics.RetrieveAPIView):
 class ProductMixinView(generics.GenericAPIView,
                        mixins.ListModelMixin,
                        mixins.RetrieveModelMixin,
-                       mixins.CreateModelMixin):
+                       mixins.CreateModelMixin,
+                       mixins.UpdateModelMixin,
+                       mixins.DestroyModelMixin):
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
     lookup_field = 'pk'
@@ -64,3 +66,9 @@ class ProductMixinView(generics.GenericAPIView,
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        self.update(request, *args, **kwargs)
+
+    def destroy(self, request, *args, **kwargs):
+        self.destroy(self, request, *args, **kwargs)
