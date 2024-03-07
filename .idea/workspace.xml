@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db352b80-24ad-47ad-9f3e-2a956fa3ed91" name="Changes" comment="Inject Data with Django Rest Framework Views">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/serializers.py" afterDir="false" />
-    </list>
+    <list default="true" id="db352b80-24ad-47ad-9f3e-2a956fa3ed91" name="Changes" comment="Django Rest Framework Generics Retrieve API View" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,7 +131,7 @@
       <workItem from="1709710802822" duration="5941000" />
       <workItem from="1709724272604" duration="3113000" />
       <workItem from="1709758162200" duration="2286000" />
-      <workItem from="1709800026450" duration="2972000" />
+      <workItem from="1709800026450" duration="3638000" />
     </task>
     <task id="LOCAL-00001" summary="37:07">
       <option name="closed" value="true" />
@@ -177,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709760431250</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Inject Data with Django Rest Framework Views">
+      <option name="closed" value="true" />
+      <created>1709803521398</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709803521398</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +204,8 @@
     <MESSAGE value="Django Model instance to Dictionary" />
     <MESSAGE value="Rest Framework View &amp; Response" />
     <MESSAGE value="Django Rest Framework Model Serializers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Django Rest Framework Model Serializers" />
+    <MESSAGE value="Inject Data with Django Rest Framework Views" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inject Data with Django Rest Framework Views" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
