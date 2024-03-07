@@ -58,7 +58,7 @@ class ProductMixinView(generics.GenericAPIView,
     lookup_field = 'pk'
     # note that permission and authentication are working on generic views
     authentication_classes = [authentication.SessionAuthentication]
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.DjangoModelPermissions]
 
     def get(self, request, *args, **kwargs):
         pk = kwargs.get('pk', None)
