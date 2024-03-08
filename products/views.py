@@ -48,10 +48,11 @@ class ProductMixinView(
     IsStaffEditorPermissionMixin,
     generics.GenericAPIView,
     mixins.ListModelMixin,
-    mixins.RetrieveModelMixin,
     mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
     mixins.UpdateModelMixin,
-    mixins.DestroyModelMixin):
+    mixins.DestroyModelMixin
+    ):
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
     lookup_field = 'pk'
@@ -59,19 +60,17 @@ class ProductMixinView(
     # note that permission and authentication are working on generic views
 
     def get(self, request, *args, **kwargs):
-        pk = kwargs.get('pk', None)
+        pk=kwargs.get('pk',None)
         if pk:
             return self.retrieve(request, *args, **kwargs)
         else:
             return self.list(request, *args, **kwargs)
-
+    
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
 
     def put(self, request, *args, **kwargs):
-        pk = kwargs.get('pk', None)
-        self.update(request,pk, *args, **kwargs)
+        return self.update(request, *args, **kwargs)
 
-    def destroy(self, request, *args, **kwargs):
-        pk = kwargs.get('pk', None)
-        self.destroy(self,pk, request, *args, **kwargs)
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(self, request, *args, **kwargs)
