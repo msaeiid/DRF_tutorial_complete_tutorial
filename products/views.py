@@ -3,7 +3,7 @@ from rest_framework import generics, views, status, mixins, authentication, perm
 from rest_framework.decorators import api_view
 from rest_framework.request import Request
 from rest_framework.response import Response
-
+from djangoProject.authentiction import TokenAuthentication
 from .permissions import IsStaffEditorPermission
 from .serializers import ProductSerializer
 from products.models import Product
@@ -58,8 +58,9 @@ class ProductMixinView(generics.GenericAPIView,
     queryset = Product.objects.all()
     lookup_field = 'pk'
     # note that permission and authentication are working on generic views
-    authentication_classes = [authentication.SessionAuthentication]
-    permission_classes = [permissions.IsAdminUser, IsStaffEditorPermission]
+    authentication_classes = [authentication.SessionAuthentication, TokenAuthentication]
+    permission_classes = [permissions.IsAdminUser,
+                          IsStaffEditorPermission]
 
     def get(self, request, *args, **kwargs):
         pk = kwargs.get('pk', None)
