@@ -69,7 +69,9 @@ class ProductMixinView(
         return self.create(request, *args, **kwargs)
 
     def put(self, request, *args, **kwargs):
-        self.update(request, *args, **kwargs)
+        pk = kwargs.get('pk', None)
+        self.update(request,pk, *args, **kwargs)
 
     def destroy(self, request, *args, **kwargs):
-        self.destroy(self, request, *args, **kwargs)
+        pk = kwargs.get('pk', None)
+        self.destroy(self,pk, request, *args, **kwargs)

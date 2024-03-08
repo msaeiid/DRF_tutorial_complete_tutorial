@@ -56,7 +56,7 @@ authentication_classes = [
 ]
 if DEBUG:
     authentication_classes = [
-        'rest_framework.authentication.TokenAuthentication'
+        'djangoProject.authentiction.TokenAuthentication'
     ]
 
 permission_classes = [

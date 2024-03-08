@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db352b80-24ad-47ad-9f3e-2a956fa3ed91" name="Changes" comment="Django Rest Framework Generics Retrieve API View" />
+    <list default="true" id="db352b80-24ad-47ad-9f3e-2a956fa3ed91" name="Changes" comment="Using Mixins for Permissions">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/migrations/0001_initial.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +55,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mskar\PycharmProjects\djangoProject\api" />
+      <recent name="C:\Users\mskar\PycharmProjects\djangoProject\products" />
       <recent name="C:\Users\mskar\PycharmProjects\djangoProject\djangoProject" />
     </key>
   </component>
@@ -132,6 +139,15 @@
       <workItem from="1709724272604" duration="3113000" />
       <workItem from="1709758162200" duration="2286000" />
       <workItem from="1709800026450" duration="3638000" />
+      <workItem from="1709804144778" duration="3964000" />
+      <workItem from="1709825441898" duration="5350000" />
+      <workItem from="1709834997992" duration="3724000" />
+      <workItem from="1709844276358" duration="1623000" />
+      <workItem from="1709896819691" duration="5550000" />
+      <workItem from="1709902411557" duration="2269000" />
+      <workItem from="1709905381117" duration="171000" />
+      <workItem from="1709907214361" duration="1499000" />
+      <workItem from="1709924847640" duration="1936000" />
     </task>
     <task id="LOCAL-00001" summary="37:07">
       <option name="closed" value="true" />
@@ -181,7 +197,127 @@
       <option name="project" value="LOCAL" />
       <updated>1709803521398</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Django Rest Framework Generics Retrieve API View">
+      <option name="closed" value="true" />
+      <created>1709804939171</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1709804939171</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Django Rest Framework Generics CreateAPIView">
+      <option name="closed" value="true" />
+      <created>1709805857336</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1709805857336</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Django Rest Framework Generics List APIView &amp; ListCreateAPIView">
+      <option name="closed" value="true" />
+      <created>1709806401452</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1709806401452</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Using Function Based Views For Create Retrieve or List">
+      <option name="closed" value="true" />
+      <created>1709808826912</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1709808826912</updated>
+    </task>
+    <task id="LOCAL-00011" summary="UpdateAPIView &amp; DestroyAPIView">
+      <option name="closed" value="true" />
+      <created>1709831648786</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1709831648788</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Mixins and a Generic API View">
+      <option name="closed" value="true" />
+      <created>1709833461730</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1709833461730</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Mixins and a Generic API View">
+      <option name="closed" value="true" />
+      <created>1709833599178</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1709833599178</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Session Authentication &amp; Permissions">
+      <option name="closed" value="true" />
+      <created>1709834478386</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1709834478386</updated>
+    </task>
+    <task id="LOCAL-00015" summary="User &amp; Group Permissions with DjangoModelPermissions">
+      <option name="closed" value="true" />
+      <created>1709836077999</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1709836077999</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Custom Permissions">
+      <option name="closed" value="true" />
+      <created>1709839277028</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1709839277028</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Custom Permissions">
+      <option name="closed" value="true" />
+      <created>1709844543845</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1709844543845</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Custom Permissions">
+      <option name="closed" value="true" />
+      <created>1709845845916</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1709845845916</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Token Authentication">
+      <option name="closed" value="true" />
+      <created>1709898920639</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1709898920639</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Default Django Rest Framework Settings">
+      <option name="closed" value="true" />
+      <created>1709900436293</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1709900436293</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Using Mixins for Permissions">
+      <option name="closed" value="true" />
+      <created>1709903181240</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1709903181240</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,15 +341,32 @@
     <MESSAGE value="Rest Framework View &amp; Response" />
     <MESSAGE value="Django Rest Framework Model Serializers" />
     <MESSAGE value="Inject Data with Django Rest Framework Views" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inject Data with Django Rest Framework Views" />
+    <MESSAGE value="Django Rest Framework Generics Retrieve API View" />
+    <MESSAGE value="Django Rest Framework Generics CreateAPIView" />
+    <MESSAGE value="Django Rest Framework Generics List APIView &amp; ListCreateAPIView" />
+    <MESSAGE value="Using Function Based Views For Create Retrieve or List" />
+    <MESSAGE value="UpdateAPIView &amp; DestroyAPIView" />
+    <MESSAGE value="Mixins and a Generic API View" />
+    <MESSAGE value="Session Authentication &amp; Permissions" />
+    <MESSAGE value="User &amp; Group Permissions with DjangoModelPermissions" />
+    <MESSAGE value="Custom Permissions" />
+    <MESSAGE value="Token Authentication" />
+    <MESSAGE value="Default Django Rest Framework Settings" />
+    <MESSAGE value="Using Mixins for Permissions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Using Mixins for Permissions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/products/serializers.py</url>
+          <url>file://$PROJECT_DIR$/api/permissions.py</url>
           <line>13</line>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/api/permissions.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
