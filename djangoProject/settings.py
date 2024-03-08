@@ -60,12 +60,12 @@ if DEBUG:
     ]
 
 permission_classes = [
-    'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    'api.permissions.IsStaffEditorPermission',
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': authentication_classes,
-    'DEFAULT_PERMISSION_CLASSES': permission_classes,
+    # 'DEFAULT_PERMISSION_CLASSES': permission_classes,
 }
 
 ROOT_URLCONF = 'djangoProject.urls'
