@@ -50,6 +50,23 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+authentication_classes = [
+    'rest_framework.authentication.SessionAuthentication',
+    'rest_framework.authentication.TokenAuthentication'
+]
+if DEBUG:
+    authentication_classes = [
+        'rest_framework.authentication.TokenAuthentication'
+    ]
+
+permission_classes = [
+    'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': authentication_classes,
+    'DEFAULT_PERMISSION_CLASSES': permission_classes,
+}
 
 ROOT_URLCONF = 'djangoProject.urls'
 

@@ -58,7 +58,6 @@ class ProductMixinView(generics.GenericAPIView,
     queryset = Product.objects.all()
     lookup_field = 'pk'
     # note that permission and authentication are working on generic views
-    authentication_classes = [authentication.SessionAuthentication, TokenAuthentication]
     permission_classes = [permissions.IsAdminUser,
                           IsStaffEditorPermission]
 
