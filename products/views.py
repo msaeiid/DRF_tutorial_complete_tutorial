@@ -1,5 +1,5 @@
 from rest_framework import generics, mixins
-from api.mixins import IsStaffEditorPermissionMixin
+from api.mixins import IsStaffEditorPermissionMixin,UserQuerySetMixin
 from .serializers import ProductSerializer
 from products.models import Product
 
@@ -46,6 +46,7 @@ class ProductDetailAPIView(generics.RetrieveAPIView):
 class ProductMixinView(
     # Note permission mixins should be the first mix in same as below
     IsStaffEditorPermissionMixin,
+    UserQuerySetMixin,
     generics.GenericAPIView,
     mixins.ListModelMixin,
     mixins.CreateModelMixin,
@@ -56,6 +57,9 @@ class ProductMixinView(
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
     lookup_field = 'pk'
+    #UserQuerySetMixin
+    user_field='user'
+    allow_staff_view=True
 
     # note that permission and authentication are working on generic views
 
@@ -80,9 +84,17 @@ class ProductMixinView(
 
     def perform_create(self, serializer):
         # if you need to add user when trying to create
-        #serializer.save(user=self.request.user)
         title=serializer.validated_data['title']
         content=serializer.validated_data['content']
         if content:
             content=title
-        serializer.save(content=content)
+        serializer.save(content=content,user=self.request.user)
+
+
+    # def get_queryset(self):
+    #     user=self.request.user
+    #     qs=super().get_queryset()
+    #     if not user.is_authenticated:
+    #         return Product.objects.none()
+    #     else:
+    #         return qs.filter(user=user)

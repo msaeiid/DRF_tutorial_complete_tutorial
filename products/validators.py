@@ -13,8 +13,8 @@ from rest_framework.validators import UniqueValidator
 
 def no_hi_in_title(value):
     if "hi" in value:
-        raise serializers.ValidationError('Hi is not allowed in title')
+        raise serializers.ValidationError(f'{value} is not allowed')
     else:
         return value
     
-title_unique_validator=UniqueValidator(Product.objects.all())
+title_unique_validator=UniqueValidator(Product.objects.all(),lookup='iexact')
