@@ -54,10 +54,10 @@ authentication_classes = [
     'rest_framework.authentication.SessionAuthentication',
     'rest_framework.authentication.TokenAuthentication'
 ]
-if DEBUG:
-    authentication_classes = [
-        'djangoProject.authentiction.TokenAuthentication'
-    ]
+#if DEBUG:
+#    authentication_classes = [
+#        'djangoProject.authentiction.TokenAuthentication'
+#    ]
 
 permission_classes = [
     'api.permissions.IsStaffEditorPermission',
