@@ -74,3 +74,15 @@ class ProductMixinView(
 
     def delete(self, request, *args, **kwargs):
         return self.destroy(self, request, *args, **kwargs)
+    
+
+
+
+    def perform_create(self, serializer):
+        # if you need to add user when trying to create
+        #serializer.save(user=self.request.user)
+        title=serializer.validated_data['title']
+        content=serializer.validated_data['content']
+        if content:
+            content=title
+        serializer.save(content=content)
