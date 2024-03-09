@@ -3,11 +3,19 @@ from rest_framework.reverse import reverse
 from .models import Product
 from rest_framework.request import Request
 from . import validators
+from api.serializers import UserPublicSerializer
 
+class ProductInlineSerializer(serializers.Serializer):
+    url=serializers.HyperlinkedIdentityField(view_name='product_detail_update_delete',lookup_field='pk')
+    title=serializers.CharField(read_only=True)
 
 class ProductSerializer(serializers.ModelSerializer):
     my_discount = serializers.SerializerMethodField(read_only=True)
     url=serializers.SerializerMethodField(read_only=True)
+
+    owner=UserPublicSerializer(read_only=True,source='user')
+    related_products=ProductInlineSerializer(source='user.product_set.all',many=True,read_only=True)
+
     ## only for Model Serializer Create & Update Methods added
     #email=serializers.EmailField(write_only=True)
     #third way to send url, it's not bad...
@@ -18,6 +26,7 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ['id',
+                  'owner',
                   ## only for Model Serializer Create & Update Methods added
                   #'email',
                   'title',
@@ -27,7 +36,8 @@ class ProductSerializer(serializers.ModelSerializer):
                   'price',
                   'my_discount',
                   'url',
-                  'edit_url']
+                  'edit_url',
+                  'related_products']
     ## there are two ways for validating a field in serializer, in seprate file and validate in serializer or on model    
     #def validate_<fieldname> not for read_only and validate in update, create ,...
     # def validate_title(self,value):
