@@ -91,10 +91,17 @@ class ProductMixinView(
         serializer.save(content=content,user=self.request.user)
 
 
-    # def get_queryset(self):
-    #     user=self.request.user
-    #     qs=super().get_queryset()
-    #     if not user.is_authenticated:
-    #         return Product.objects.none()
-    #     else:
-    #         return qs.filter(user=user)
+class SearchListView(generics.ListAPIView):
+    queryset=Product.objects.all()
+    serializer_class=ProductSerializer
+
+    def get_queryset(self):
+        qs= super().get_queryset()
+        q=self.request.GET.get('q')
+        result=Product.objects.none()
+        if q is not None:
+            user=None
+            if self.request.user.is_authenticated:
+                user=self.request.user
+            result=qs.search(q,user=user)
+        return result
