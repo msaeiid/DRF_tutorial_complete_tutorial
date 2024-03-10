@@ -66,6 +66,8 @@ permission_classes = [
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': authentication_classes,
     # 'DEFAULT_PERMISSION_CLASSES': permission_classes,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 2,
 }
 
 ROOT_URLCONF = 'djangoProject.urls'
