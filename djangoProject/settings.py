@@ -35,10 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'algoliasearch_django',
     'rest_framework',
     'rest_framework.authtoken',
     'api.apps.ApiConfig',
-    "products.apps.ProductsConfig"
+    'products.apps.ProductsConfig',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +150,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+ALGOLIA = {
+    'APPLICATION_ID': '7BJQYX9AAY',
+    'API_KEY': 'b7e51881b8352382ccc9a946ca5cd3ae',
+    'INDEX_PREFIX':'cfe'
+}

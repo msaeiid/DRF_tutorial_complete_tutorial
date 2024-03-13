@@ -2,8 +2,11 @@ from django.db import models
 from django.conf import settings
 from django.db.models import Q
 
+import random
+
 User=settings.AUTH_USER_MODEL # uath.User
 
+TAGS_MODEL_VALUES=['electronics','cars','boats','movies','cameras']
 
 
 class ProductQuerySet(models.QuerySet):
@@ -40,8 +43,14 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=15, decimal_places=2, db_default=99.99)
     public=models.BooleanField(default=True)
 
-
     objects=ProductManager()
+
+
+    def is_public(self) -> bool:
+        return self.public
+    
+    def get_rags_list(self):
+        return [random.choices(TAGS_MODEL_VALUES)]
 
     def __str__(self):
         return self.title
