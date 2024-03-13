@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.db.models import Q
+from django.urls import reverse
 
 import random
 
@@ -45,6 +46,23 @@ class Product(models.Model):
 
     objects=ProductManager()
 
+
+    # problem is it doesn't show in PUT http method as content
+    # @property
+    # def body(self):
+    #     return self.content
+    
+    def get_absolute_url(self):
+        return reverse("product_detail_update_delete", kwargs={"pk": self.pk})
+    
+    @property
+    def endpoint(self):
+        return self.get_absolute_url()
+    
+
+    @property
+    def path(self):
+        return f'/product/{self.pk}/'
 
     def is_public(self) -> bool:
         return self.public

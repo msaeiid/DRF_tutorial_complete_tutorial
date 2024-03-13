@@ -14,6 +14,7 @@ class ProductSerializer(serializers.ModelSerializer):
     owner=UserPublicSerializer(read_only=True,source='user')
     edit_url=serializers.HyperlinkedIdentityField('update_view',lookup_field='pk')
     title=serializers.CharField(validators=[validators.title_unique_validator,validators.no_hi_in_title])
+    body=serializers.CharField(source='content')
 
     class Meta:
         model = Product
@@ -23,10 +24,12 @@ class ProductSerializer(serializers.ModelSerializer):
                   'edit_url',
                   'pk',
                   'title',
-                  'content',
+                  'body',
                   'price',
                   'sale_price',
-                  'public']
+                  'public',
+                  'path',
+                  'endpoint']
 
     
 

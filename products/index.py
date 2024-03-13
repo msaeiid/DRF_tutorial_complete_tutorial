@@ -9,12 +9,16 @@ class ProdcutIndex(AlgoliaIndex):
 
     fields=['user',
             'title',
+            #by changing content to body it raises error
             'content',
             'price',
-            'public']
+            'public',
+            'path',
+            'endpoint']
     
 
     settings={
+        #by changing content to body it raises error
         'searchableAttributes':['title','content'],
         'attritubesForFaceting':['user','public']
     }
