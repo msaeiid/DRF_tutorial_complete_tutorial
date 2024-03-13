@@ -5,13 +5,19 @@ from .models import Product
 @register(Product)
 class ProdcutIndex(AlgoliaIndex):
     # what ever method is or function is because of validation he used function
-    should_index='is_public'
+    #should_index='is_public'
 
     fields=['user',
             'title',
             'content',
             'price',
             'public']
+    
+
+    settings={
+        'searchableAttributes':['title','content'],
+        'attritubesForFaceting':['user','public']
+    }
     
 
     tags='get_rags_list'
