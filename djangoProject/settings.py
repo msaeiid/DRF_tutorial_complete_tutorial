@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,9 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #third party api services
     'algoliasearch_django',
+    #third party api packages
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_simplejwt',
     'api.apps.ApiConfig',
     'products.apps.ProductsConfig',
 ]
@@ -52,8 +56,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 authentication_classes = [
+    # the order of authentication classes does matter
     'rest_framework.authentication.SessionAuthentication',
-    'rest_framework.authentication.TokenAuthentication'
+    'rest_framework.authentication.TokenAuthentication',
+    'rest_framework_simplejwt.authentication.JWTAuthentication',
 ]
 #if DEBUG:
 #    authentication_classes = [
@@ -156,4 +162,11 @@ ALGOLIA = {
     'APPLICATION_ID': '7BJQYX9AAY',
     'API_KEY': 'b7e51881b8352382ccc9a946ca5cd3ae',
     'INDEX_PREFIX':'cfe'
+}
+
+SIMPLE_JWT={
+    "ACCESS_TOKEN_LIFETIME": timedelta(seconds=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(minutes=1),
+    # after refresh toke expire we have to reauthenticate
+    "AUTH_HEADER_TYPES": ("Bearer",),
 }
