@@ -1,10 +1,15 @@
 const loginForm=document.getElementById('login-form')
 const contentContainer=document.getElementById('content-container')
+const searchForm=document.getElementById('search-form')
 const baseEndpoint='http://localhost:8000'
 
 
 if (loginForm){
 	loginForm.addEventListener('submit',handleLogin)
+}
+
+if (searchForm){
+	searchForm.addEventListener('submit',handleSearch)
 }
 
 function handleLogin(event){
@@ -102,3 +107,32 @@ function validateJWTToken(){
 }
 }
 validateJWTToken()
+
+
+function handleSearch(event){
+	event.preventDefault()
+	let formData=new FormData(searchForm)
+	let data=Object.fromEntries(formData)
+	let searchParams=new URLSearchParams(data)
+	const endpoint=`${baseEndpoint}/product/search?${searchParams}`
+	const headers={
+		"content-type":"application/json"
+	}
+	const authToken = localStorage.getItem('access')
+	if (authToken){
+		headers['Authorization']=`Bearer ${authToken}`
+	}
+	const options={
+		method: "GET",
+		headers:headers
+	}
+	fetch(endpoint,options)
+	.then(response=>{
+		return response.json()
+	})
+	.then(data=>{
+		console.log(data.hits)
+		writeToContent(data)
+		})
+	.catch(err=>{console.log(err)})
+}
