@@ -14,16 +14,16 @@ function handleLogin(event){
 	const options={
 		method:"POST",
 		headers:{
-			"ContentType":"application/json"
+			"content-type":"application/json"
 		},
 		body:bodyStr
 	}
-	fetch(loginEndpoint,options) //request.POST
+	fetch(loginEndpoint,options) //promise
 	.then(response=>{
 		//console.log(response)
 		return response.json()
 	}).then(x=>{
-		//console.log(x)
+		console.log(x)
 	}).catch(err=>{
 		console.log(err)
 	})

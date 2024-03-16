@@ -36,9 +36,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     #third party api services
     'algoliasearch_django',
+    
     #third party api packages
+    'corsheaders',
+    
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
@@ -49,6 +53,9 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    
+    "corsheaders.middleware.CorsMiddleware",
+      
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -170,3 +177,35 @@ SIMPLE_JWT={
     # after refresh toke expire we have to reauthenticate
     "AUTH_HEADER_TYPES": ("Bearer",),
 }
+
+
+CORS_ALLOW_METHODS = (
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+)
+
+CORS_ALLOW_HEADERS = (
+    "accept",
+    "authorization",
+    "content-type",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+)
+
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^/api/.*",
+]
+
+CORS_ALLOWED_ORIGINS=[]
+
+if DEBUG:
+    CORS_ALLOWED_ORIGINS+=[
+        'http://localhost:8111',
+        'https://localhost:8111',
+    ]
