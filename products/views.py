@@ -1,5 +1,5 @@
 from rest_framework import generics, mixins
-from api.mixins import IsStaffEditorPermissionMixin,UserQuerySetMixin
+from api.mixins import IsStaffEditorPermissionMixin, UserQuerySetMixin
 from .serializers import ProductSerializer
 from products.models import Product
 from . import client
@@ -56,23 +56,23 @@ class ProductMixinView(
     mixins.RetrieveModelMixin,
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin
-    ):
+):
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
     lookup_field = 'pk'
-    #UserQuerySetMixin
-    user_field='user'
-    allow_staff_view=True
+    # UserQuerySetMixin
+    user_field = 'user'
+    allow_staff_view = True
 
     # note that permission and authentication are working on generic views
 
     def get(self, request, *args, **kwargs):
-        pk=kwargs.get('pk',None)
+        pk = kwargs.get('pk', None)
         if pk:
             return self.retrieve(request, *args, **kwargs)
         else:
             return self.list(request, *args, **kwargs)
-    
+
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
 
@@ -81,17 +81,14 @@ class ProductMixinView(
 
     def delete(self, request, *args, **kwargs):
         return self.destroy(self, request, *args, **kwargs)
-    
-
-
 
     def perform_create(self, serializer):
         # if you need to add user when trying to create
-        title=serializer.validated_data['title']
-        content=serializer.validated_data['content']
+        title = serializer.validated_data['title']
+        content = serializer.validated_data['content']
         if content:
-            content=title
-        serializer.save(content=content,user=self.request.user)
+            content = title
+        serializer.save(content=content, user=self.request.user)
 
 
 # class SearchListView(generics.ListAPIView):
@@ -108,20 +105,20 @@ class ProductMixinView(
 #                 user=self.request.user
 #             result=qs.search(q,user=user)
 #         return result
-        
 
 
 class SearchListView(generics.GenericAPIView):
-    def get(self,request,*args, **kwargs):
-        user=None
+    def get(self, request, *args, **kwargs):
+        user = None
         if request.user.is_authenticated:
-            user=request.user.username
-        query=request.GET.get('q')
-        public=str(request.GET.get('public')) != "0"
-        tag=request.GET.get('tag') or None
-        print(user,query,public,tag)
+            user = request.user.username
+        query = request.GET.get('q')
+        public = str(request.GET.get('public')) != "0"
+        tag = request.GET.get('tag') or None
+        print(user, query, public, tag)
         if query:
-            result=client.perform_search(query,tags=tag,user=user,public=public)
+            result = client.perform_search(
+                query, tags=tag, user=user, public=public)
             return Response(result)
         else:
-            return Response('',status=status.HTTP_400_BAD_REQUEST)
+            return Response('', status=status.HTTP_400_BAD_REQUEST)

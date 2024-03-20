@@ -16,5 +16,7 @@ def no_hi_in_title(value):
         raise serializers.ValidationError(f'{value} is not allowed')
     else:
         return value
-    
-title_unique_validator=UniqueValidator(Product.objects.all(),lookup='iexact')
+
+
+title_unique_validator = UniqueValidator(
+    Product.objects.all(), lookup='iexact')

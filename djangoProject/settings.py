@@ -36,13 +36,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    #third party api services
+
+    # third party api services
     'algoliasearch_django',
-    
-    #third party api packages
+
+    # third party api packages
     'corsheaders',
-    
+
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
@@ -53,9 +53,9 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    
+
     "corsheaders.middleware.CorsMiddleware",
-      
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -68,7 +68,7 @@ authentication_classes = [
     'rest_framework.authentication.TokenAuthentication',
     'rest_framework_simplejwt.authentication.JWTAuthentication',
 ]
-#if DEBUG:
+# if DEBUG:
 #    authentication_classes = [
 #        'djangoProject.authentiction.TokenAuthentication'
 #    ]
@@ -88,11 +88,9 @@ ROOT_URLCONF = 'djangoProject.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates'
         # 'BACKEND': 'django.template.backends.jinja2.Jinja2'
-        ,
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -168,10 +166,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ALGOLIA = {
     'APPLICATION_ID': '7BJQYX9AAY',
     'API_KEY': 'b7e51881b8352382ccc9a946ca5cd3ae',
-    'INDEX_PREFIX':'cfe'
+    'INDEX_PREFIX': 'cfe'
 }
 
-SIMPLE_JWT={
+SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(seconds=30),
     "REFRESH_TOKEN_LIFETIME": timedelta(minutes=1),
     # after refresh toke expire we have to reauthenticate
@@ -202,10 +200,10 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^/api/.*",
 ]
 
-CORS_ALLOWED_ORIGINS=[]
+CORS_ALLOWED_ORIGINS = []
 
 if DEBUG:
-    CORS_ALLOWED_ORIGINS+=[
+    CORS_ALLOWED_ORIGINS += [
         'http://localhost:8111',
         'https://localhost:8111',
     ]

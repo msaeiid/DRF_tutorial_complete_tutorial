@@ -5,60 +5,55 @@ from django.urls import reverse
 
 import random
 
-User=settings.AUTH_USER_MODEL # uath.User
+User = settings.AUTH_USER_MODEL  # auth.User
 
-TAGS_MODEL_VALUES=['electronics','cars','boats','movies','cameras']
+TAGS_MODEL_VALUES = ['electronics', 'cars', 'boats', 'movies', 'cameras']
 
 
 class ProductQuerySet(models.QuerySet):
     def is_public(self):
         return self.filter(public=True)
-    
 
-    def search(self,query,user=None):
-        lookup=Q(title__icontains=query) | Q(content__icontains=query)
-        qs=self.is_public().filter(lookup)
+    def search(self, query, user=None):
+        lookup = Q(title__icontains=query) | Q(content__icontains=query)
+        qs = self.is_public().filter(lookup)
         if user:
-            qs2=self.filter(user=user).filter(lookup)
-            qs=(qs|qs2).distinct()
+            qs2 = self.filter(user=user).filter(lookup)
+            qs = (qs | qs2).distinct()
 
         return qs
 
 
-
 class ProductManager(models.Manager):
-    def get_queryset(self,*args, **kwargs) -> models.QuerySet:
-        return ProductQuerySet(self.model,using=self._db)
-    
+    def get_queryset(self, *args, **kwargs) -> models.QuerySet:
+        return ProductQuerySet(self.model, using=self._db)
 
-    def search(self,query,user=None):
-        return self.get_queryset().search(query,user=user)
-
-
+    def search(self, query, user=None):
+        return self.get_queryset().search(query, user=user)
 
 
 class Product(models.Model):
-    user=models.ForeignKey(User,on_delete=models.SET_NULL,null=True,default=1)
+    user = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True, default=1)
     title = models.CharField(max_length=120)
     content = models.TextField(blank=True, null=True)
-    price = models.DecimalField(max_digits=15, decimal_places=2, db_default=99.99)
-    public=models.BooleanField(default=True)
+    price = models.DecimalField(
+        max_digits=15, decimal_places=2, db_default=99.99)
+    public = models.BooleanField(default=True)
 
-    objects=ProductManager()
-
+    objects = ProductManager()
 
     # problem is it doesn't show in PUT http method as content
     # @property
     # def body(self):
     #     return self.content
-    
+
     def get_absolute_url(self):
         return reverse("product_detail_update_delete", kwargs={"pk": self.pk})
-    
+
     @property
     def endpoint(self):
         return self.get_absolute_url()
-    
 
     @property
     def path(self):
@@ -66,7 +61,7 @@ class Product(models.Model):
 
     def is_public(self) -> bool:
         return self.public
-    
+
     def get_rags_list(self):
         return [random.choices(TAGS_MODEL_VALUES)]
 
